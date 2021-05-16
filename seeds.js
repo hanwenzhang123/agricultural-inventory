@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const Product = require('./models/product');
+const mongoose = require('mongoose');   //also connect the mongoose, it can connect on its own
+const Product = require('./models/product');    //require the module we created using mongoose
 
 mongoose.connect('mongodb://localhost:27017/farmStand', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
@@ -51,7 +51,7 @@ const seedProducts = [
     },
 ]
 
-Product.insertMany(seedProducts)
+Product.insertMany(seedProducts)    //mongoose validate the data before inserting the array above with many products to exist database, can only insert once
     .then(res => {
         console.log(res)
     })
